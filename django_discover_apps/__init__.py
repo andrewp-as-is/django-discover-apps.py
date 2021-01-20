@@ -44,7 +44,7 @@ def discover_apps(path):
     """return a list of apps"""
     apps = []
     for package in setuptools.find_packages(os.path.abspath(path)):
-        if 'views' not in package.split('.') and 'urls' not in package.split('.'):
+        if 'views' not in package and 'urls' not in package:
             if isapp(os.path.join(path, package.replace('.', os.sep))):
                 apps.append(package)
     return apps
